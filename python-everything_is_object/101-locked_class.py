@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""
-    This is a class that those not allow user
-    to dynamically adding new instance attribute
-    to an object
-"""
+"""This module defines a class `LockedClass`."""
 
 
 class LockedClass:
-    """This the class for LockedClass"""
-    __slots__ = ['first_name']
+    """
+    prevents the user from dynamically creating new instance attributes,
+    except if the new instance attribute is called first_name
+    """
+
+    __slots__ = ["first_name"]
