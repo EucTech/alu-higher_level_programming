@@ -1,13 +1,16 @@
 #!/usr/bin/node
 
-const inputDictionary = require('./101-data').dict;
+const dict = require('./101-data').dict;
 
-const reversedDictionary = {};
-for (const [key, value] of Object.entries(inputDictionary)) {
-  if (reversedDictionary[value] === undefined) {
-    reversedDictionary[value] = [key];
+const sortObj = {};
+
+for (const key in dict) {
+  const value = dict[key];
+  if (sortObj[value]) {
+    sortObj[value].push(key);
   } else {
-    reversedDictionary[value].push(key);
+    sortObj[value] = [key];
   }
 }
-console.log(reversedDictionary);
+
+console.log(sortObj);

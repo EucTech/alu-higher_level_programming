@@ -1,6 +1,5 @@
-// displays the value of hello from a fetch in the HTML tag DIV#hello
-$(function () {
-  $.get('https://fourtonfish.com/hellosalut/?lang=fr', function (data, textStatus) {
-    $('#hello').text(data.hello);
-  });
+const getUrl = "https://hellosalut.stefanbohacek.dev/?lang=fr";
+
+$.get(getUrl, function(data){
+    $("#hello").html("<p>" + data.hello + "</p>");
 });

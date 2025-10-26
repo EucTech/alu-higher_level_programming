@@ -1,11 +1,18 @@
-$(document).ready(function () {
-  $('#btn_translate, #language_code').on('click keyup', function (e) {
-    if (e.type === 'click' || (e.type === 'keyup' && e.keyCode === 13)) {
-      const languageCode = $('#language_code').val();
-
-      $.getJSON('https://www.fourtonfish.com/hellosalut/hello/' + languageCode, function (data) {
-        $('#hello').text(data.hello);
-      });
+$(document).ready(function() {
+    // Function to handle translation
+    function translateHello() {
+        const value = $("#language_code").val();
+        const getUrl = "https://www.fourtonfish.com/hellosalut/hello/?lang=" + value;
+        $.get(getUrl, function(data) {
+            $("#hello").text(data.hello);
+        });
     }
-  });
+
+    $("#btn_translate").click(translateHello);
+
+    $("#language_code").keypress(function(event) {
+        if (event.keyCode === 13) {
+            translateHello();
+        }
+    });
 });

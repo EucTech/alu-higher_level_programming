@@ -9,8 +9,12 @@ class Rectangle {
   }
 
   print () {
-    for (let i = 0; i < this.height; i++) {
-      console.log('X'.repeat(this.width));
+    for (let n = 0; n < this.height; n++) {
+      let row = '';
+      for (let k = 0; k < this.width; k++) {
+        row += 'X';
+      }
+      console.log(row);
     }
   }
 }
